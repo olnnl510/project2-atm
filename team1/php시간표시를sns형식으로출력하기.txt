@@ -1,0 +1,44 @@
+PHP 시간표시를 SNS형식으로 출력하기
+ 2016년 8월 19일  천재작곡가
+PHP 시간 표시를 SNS 형식으로 출력하기
+ 
+
+페이스북이나 트위터에 보면 글올린시간이
+
+’50초전’, ‘3분전’ 이런식으로 표시가 되는것을 볼수 있습니다.
+
+PHP에서 날짜를 이러한 형식으로 표시되도록 하는 함수를 짜보았습니다.
+
+ 
+
+function display_datetime($datetime = '')
+{
+    if (empty($datetime)) {
+        return false;
+    }
+
+    $diff = time() - strtotime($datetime);
+
+    $s = 60; //1분 = 60초
+    $h = $s * 60; //1시간 = 60분
+    $d = $h * 24; //1일 = 24시간
+    $y = $d * 10; //1년 = 1일 * 10일
+
+    if ($diff < $s) {
+        $result = $diff . '초전';
+    } elseif ($h > $diff && $diff >= $s) {
+        $result = round($diff/$s) . '분전';
+    } elseif ($d > $diff && $diff >= $h) {
+        $result = round($diff/$h) . '시간전';
+    } elseif ($y > $diff && $diff >= $d) {
+        $result = round($diff/$d) . '일전';
+    } else {
+    	$result = date('Y.m.d.', strtotime($datetime));
+    }
+
+    return $result;
+}
+
+
+
+출처 : https://blog.tjsrms.me/php-%EC%8B%9C%EA%B0%84%ED%91%9C%EC%8B%9C%EB%A5%BC-sns%ED%98%95%EC%8B%9D%EC%9C%BC%EB%A1%9C-%EC%B6%9C%EB%A0%A5%ED%95%98%EA%B8%B0/

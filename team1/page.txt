@@ -1,0 +1,47 @@
+project name: Ask to me
+
+db.php
+db_user.php
+db_board.php
+
+join.php
+join_proc.php
+
+login.php
+login_proc.php
+logout.php 
+
+main_1.php
+write_proc.php
+mod.php
+mod_proc.php
+del.php
+
+main_2.php
+(write_proc.php)
+(del.php)
+(answer_proc.php)
+
+detail.php
+
+answer.php
+answer_mod.php
+answer_mod_proc.php
+answer_proc.php
+
+new_noti.php
+
+myprofile.php
+myprofile_proc.php
+
+chg_pw.php
+chg_pw_proc.php
+
+스토리보드에 answer_mod 추가
+역할분담한거 전달
+로그아웃 버튼 위치
+취소하기 누르면 닫히고 수정버튼 누르면 열리고
+메인페이지에서 질문 선택 시 detail.php로 이동
+
++ 추가
+개인정보정책 페이지

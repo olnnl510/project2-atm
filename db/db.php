@@ -2,7 +2,7 @@
     define("URL", "localhost");
     define("USERNAME", "root");
     define("PASSWORD", "506greendg@");
-    define("DB_NAME", "board_login"); // DB명으로 수정
+    define("DB_NAME", "atm");
     define("PORT", "3306");
 
     function get_conn()

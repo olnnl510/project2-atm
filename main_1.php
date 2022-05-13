@@ -20,7 +20,7 @@
       <div class="a_header">
         <div class="a_header_1">
           <div class="a_header_1_1">
-            <img src="img/profile/basic.png" class="profile">
+            <img src="img/profile/atm_basic.png" class="profile">
           </div>
           <div class="a_header_1_2">
             <a href="login.php">로그인</a>

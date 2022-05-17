@@ -6,8 +6,8 @@
         $question = $param["question"];
 
         $sql =
-        "   INSERT INTO t_board (question, i_user)
-            VALUES ('${question}', $i_user)
+        "   INSERT INTO t_board (i_user, question)
+            VALUES ($i_user, '${question}')
         "; // 정수형 '' 안붙임
         
         $conn = get_conn();
@@ -15,4 +15,44 @@
         mysqli_close($conn);
         return $result;
     }
+
+    function sel_board_list(){ // 다 뿌릴꺼니까 파라미터 필요없음 (외부로부터 값을 받지 않을것이다 = 혼자서 해결 가능)
+
+    $sql =
+    "   SELECT A.question, B.profile_img, B.nm, A.ans_at, A.answer
+        FROM t_board A
+        INNER JOIN t_user B
+        ON A.i_user=B.i_user
+        ORDER BY i_board
+        DESC
+    ";
+
+        $conn = get_conn();
+        $result = mysqli_query($conn, $sql);
+        mysqli_close($conn);
+        return $result;
+    }
 ?>
+
+
+
+<!--
+    A. question
+
+B. profile_img
+B. nm
+A. ans_at
+A. answer
+
+i_user로 join
+
+
+
+        $sql =
+        "   SELECT question
+            FROM t_board A
+            ORDER BY i_board
+            DESC
+        ";
+    
+    -->

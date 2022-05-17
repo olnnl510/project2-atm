@@ -66,40 +66,45 @@
             <input id="programming" type="radio" name="tab_item">
             <label class="tab_item" for="programming">새질문</label>
 
+            
             <div class="tab_content" id="all_content">
-              <div class="tab_content_asked">
-                <?php foreach($list as $item) { ?>
-                <div class="tab_content_question">
-                  <a href="detail.php">
-                  <img src="img/profile/atm_basic.png" class="main_list_img">
-                  <?=$item["question"]?>
-                  </a>
-                </div>
-                <div>
-                  <div><?=$item["profile_img"]?></div>
-                  <div><?=$item["nm"]?></div>
-                  <div><?=$item["ans_at"]?></div>
-                  <div><?=$item["answer"]?></div>
+
+              <table>
+                <tbody>
+                <?php foreach($list as $item) { ?> <!-- 배열 as 값 -->
+                    <tr>
+                        <td>
+                          <a href="detail.php">
+                            <img src="img/profile/atm_basic.png" class="main_list_img">
+                            <?=$item["question"]?>
+                          </a>
+                        </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <?=$item["profile_img"]?>
+                        <?=$item["nm"]?>
+                        <?=$item["ans_at"]?>
+                        <?=$item["answer"]?>
+                      </td>
+                    </tr>
                   <?php } ?>
-                </div>
-              </div>
-            </div> <!--tab_content-->
-            <div class="tab_content" id="programming_content">
-              우원님 코드 주시면 붙이기
+                </tbody>
+              </table>
+
             </div>
-          </div> <!--tabs-->
-        </div> <!--main_list-->
-      </div> <!--a_main-->
+            <div class="tab_content" id="programming_content">
+                우원님 코드 주시면 붙이기
+            </div>
+          </div>
+
+        </div>
+      </div>
     </main>
-    <footer>
-      <div class="a_footer">
+    <footer class="a_footer">
         <div class="a_footer_answer"><a href="main_1.php"><img src="img/answer.png" class="a_footer_answer_img"></a></div>
         <div class="a_footer_profile"><a href="myprofile.php"><img src="img/profile.png" class="a_footer_profile_img"></a></div>
         <div class="a_footer_notice"><a href="new_noti.php"><img src="img/notice.png" class="a_footer_notice_img"></a></div>
-        <?php if(!isset($_SESSION["login_user"])) { ?>
-        <div class="a_footer_login">로그인 후 사용 가능합니다.</div>
-        <?php } ?>
-      </div>
     </footer>
   </div>
 </body>

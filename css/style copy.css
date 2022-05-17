@@ -124,20 +124,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
 }
 
 /* 탭 전체 스타일 */
 .container .a_main .main_list .tabs {
+    background-color: #ffffff;
     width: 100%;
 }
 
-.container .a_main .main_list .tabs .tab_item {
+.container .a_main .main_list .tab_item {
     width: calc(100%/2);
     height: 5vh;
     line-height: 5vh;
     border-bottom: 3px solid #0aaaaa;
-    background-color: #fff;
+    background-color: #f8f8f8;
     color: #0aaaaa;
     display: block;
     float: left;
@@ -147,19 +147,19 @@
     cursor: pointer;
 }
 
-.container .a_main .main_list .tabs .tab_item:hover {
-    opacity: 0.75;
+.container .a_main .main_list .tab_item:hover {
+opacity: 0.75;
 }
 
 /* 라디오 버튼 UI삭제*/
 .container .a_main .main_list input[name="tab_item"] {
-    display: none;
+display: none;
 }
 
 /* 탭 컨텐츠 스타일 */
-.container .a_main .main_list .tabs .tab_content {
+.container .a_main .main_list .tab_content {
     display: none;
-    padding: 1vh 1vh 3vw 1vw; /*상 우 하 좌*/
+    padding: 40px 40px 0;
     clear: both;
     overflow: hidden;
 }
@@ -167,13 +167,13 @@
 /* 선택 된 탭 콘텐츠를 표시 */
 .container .a_main .main_list #all:checked ~ #all_content,
 .container .a_main .main_list #programming:checked ~ #programming_content {
-    display: block;
+display: block;
 }
 
 /* 선택된 탭 스타일 */
 .container .a_main .main_list .tabs input:checked + .tab_item {
-    background-color: #0aaaaa;
-    color: #fff;
+background-color: #0aaaaa;
+color: #fff;
 }
 
 .container .a_main .main_list .main_list_img {
@@ -182,19 +182,6 @@
     /* max-width: 50px;
     max-height: 50px; */
 }
-
-.container .a_main .main_list .tabs .tab_content .tab_content_asked {
-    background-color: #fff;
-    padding: 1vh 1vw;
-}
-
-.container .a_main .main_list .tabs .tab_content .tab_content_asked .tab_content_question a {
-    color: #666666;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-
 
 /* ──────────────────── footer ──────────────────── */
 
@@ -209,7 +196,6 @@
     bottom: 0;
     z-index: 1;
     width: 100%;
-    height: 6vh;
 }
 
 .container .a_footer a {
@@ -231,18 +217,5 @@
 .container .a_footer .a_footer_notice .a_footer_notice_img {
     max-width: 50px;
     max-height: 50px;
-}
 
-.container footer .a_footer_login {
-    height: 6vh;
-    width: 100vw;
-    background-color: #000;
-    color: #fff;
-    opacity: 0.7;
-    position: absolute;
-    text-align: center;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }

@@ -1,0 +1,133 @@
+main 2인 윤서님꺼 / 각자하기꺼 바쁨 합치기?
+
++비밀번호 확인(유효성 검사)
++답변완료 탭은 answer!=null, 새질문 탭은 answer=null 조건 넣기
++n시간전(que_at,ans_at,ans_mod_at)
++로그인하면 로그인한 사람 피드 주소가 떠야한다 ex) atm/main_1.php?i_user=$i_user / http://asktm.kr/$i_user
+
+1. login_proc.php
+ln32 "비밀번호 일치하지 않습니다" 추가
+
+2. function ins_board($param){ // write_proc.php 에 있는 $param에 접근
+        $i_user = $param["i_user"]; // 변수명이 똑같아서 똑같은 값 갖고있는 아니라는것 인지 Q
+        $question = $param["question"];
+
+        $sql =
+        "   INSERT INTO t_board (i_user, question)
+            VALUES ($i_user, '${question}')
+        "; // 정수형 '' 안붙임
+        
+        $conn = get_conn();
+        $result = mysqli_query($conn, $sql);
+        mysqli_close($conn);
+        return $result;
+    }
+
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+function ins_question(&$param)
+{
+    $question=$param["question"];
+    
+    $sql="INSERT INTO t_question (question) VALUES ('$question')";
+
+    $conn=get_conn();
+    $result=mysqli_query($conn,$sql);
+    mysqli_close($conn);
+    return $result;
+}
+
+수정
+
+
+
+3.write_proc.php
+
+<?php
+include_once "db/db_board.php";
+
+session_start();
+$question = $_POST["question"];
+
+$login_user = $_SESSION["login_user"]; // 로그인 pk값
+$i_user = $login_user["i_user"]; // 글쓴이 pk값
+
+$param = [
+    "i_user" => $i_user, // Q 왜받아오지? 어디쓰려고?
+    "question" => $question,
+];
+
+$result = ins_board($param); // 배열로 묶어서 보내줌. 결과는 1넘어옴(true)
+if($result) { // 1 넘어왔으니(true) 주소값이동
+    Header("Location: main_1.php");
+}
+//t_board에 insert 완료 후 main_1.php로 이동.
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+<?php
+include_once "db/db_board.php";
+
+$question=$_POST["question"];
+
+$param=
+[
+    "question"=>$question
+];
+
+$result=ins_question($param);
+if($result)
+{
+    echo "성공적으로 등록되었습니다";
+} 수정
+
+4.join.php, login.php <title>ATM 익명질문
+main_1.php <title><?=$item["nm"]?> - ATM 자유로운 질문답변!
+
+5.del.php
+
+6.answer.php / answer_proc.php
+answer.php ln78 <img src="img/profile/atm_basic.png">
+
+7.main_1.php(정인)
+
+      
+
+
+
+
+
+
+
+  "   SELECT question
+            FROM t_board
+            WHERE answer IS NULL
+        ";
+
+        "   SELECT question, answer
+            FROM t_board
+            WHERE answer IS not NULL
+        ";
+
+        "   SELECT A.question, A.answer, A.ans_at, B.profile_img, B.nm
+            FROM t_board A
+            INNER JOIN t_user B
+            ON A.i_user=B.i_user
+            WHERE answer IS not NULL
+            ORDER BY i_board
+            DESC
+        ";
+
+
+
+
+
+
+
+
+
+
+
+
+
+

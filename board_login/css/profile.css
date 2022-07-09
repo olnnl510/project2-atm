@@ -1,0 +1,38 @@
+* {
+    font-family: 'Do Hyeon', sans-serif;
+}
+
+body {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Do Hyeon', sans-serif;
+    text-align: center;
+    color: grey;
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    width: 50vw;
+    height: 50vh;
+    margin-top: 100px;
+    border-radius: 1%;
+}
+
+.item {
+    margin: 10px;
+}
+
+.title {
+    width: 40vw;
+}
+.ctnt {
+    width: 40vw;
+    height: 20vh;
+}

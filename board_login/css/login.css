@@ -1,0 +1,31 @@
+body {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Do Hyeon', sans-serif;
+    text-align: center;
+    color: grey;
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    width: 30vw;
+    height: 50vh;
+    margin-top: 100px;
+    border-radius: 1%;
+}
+
+.item {
+    padding: 5px;
+}
+
+input, button{
+    font-family: 'Do Hyeon', sans-serif;
+    color: grey;
+}
